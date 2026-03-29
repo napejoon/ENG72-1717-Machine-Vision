@@ -327,7 +327,32 @@ class MultiScaleDeformableAttention(nn.Module):
                 )
             )
     
-        if torch.cuda.is_available() and value.is_cuda:
+        # if torch.cuda.is_available() and value.is_cuda:
+        #     halffloat = False
+        #     if value.dtype == torch.float16:
+        #         halffloat = True
+        #         value = value.float()
+        #         sampling_locations = sampling_locations.float()
+        #         attention_weights = attention_weights.float()
+
+        #     output = MultiScaleDeformableAttnFunction.apply(
+        #         value,
+        #         spatial_shapes,
+        #         level_start_index,
+        #         sampling_locations,
+        #         attention_weights,
+        #         self.im2col_step,
+        #     )
+
+        #     if halffloat:
+        #         output = output.half()
+        # else:
+        #     output = multi_scale_deformable_attn_pytorch(
+        #         value, spatial_shapes, sampling_locations, attention_weights
+        #     )
+
+        # if torch.cuda.is_available() and value.is_cuda: # ลบบรรทัดนี้ทิ้ง หรือคอมเมนต์ไว้
+        if False: # เพิ่มบรรทัดนี้เข้าไปแทน
             halffloat = False
             if value.dtype == torch.float16:
                 halffloat = True

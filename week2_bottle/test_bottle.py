@@ -111,7 +111,7 @@ def detect_and_localize_anomaly(image_path, model_path, anomaly_threshold=0.0015
 
 
 if __name__ == "__main__":
-    model_file = 'anomaly_model_bottle.pth'
+    model_file = 'ENG35-1717-Machine-Vision/week2_bottle/anomaly_model_tile.pth'
 
     # ทดสอบภาพปกติ
     detect_and_localize_anomaly('D:/ENG72 1717_ws/bottle/datasets/MVTecAD/bottle/test/broken_large/010.png', model_file)

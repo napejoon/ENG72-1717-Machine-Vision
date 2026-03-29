@@ -7,7 +7,7 @@ import os
 
 # กำหนด Hyperparameters และการแปลงภาพ
 BATCH_SIZE = 16
-EPOCHS = 50
+EPOCHS = 500
 LEARNING_RATE = 1e-3
 IMAGE_SIZE = 128
 transform = transforms.Compose([
@@ -67,7 +67,7 @@ def train_model():
         print(f"Epoch [{epoch + 1}/{EPOCHS}], Loss: {total_loss / len(train_loader):.6f}")
 
     # บันทึกโมเดล
-    torch.save(model.state_dict(), 'anomaly_model_bottle.pth')
+    torch.save(model.state_dict(), 'anomaly_model_tile.pth')
     print("เทรนเสร็จสิ้นและบันทึกโมเดลเรียบร้อยแล้ว!")
 
 

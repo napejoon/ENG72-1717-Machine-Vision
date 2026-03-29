@@ -42,7 +42,7 @@ class Autoencoder(nn.Module):
 
 def train_model():
     # โหลดข้อมูล (ดึงเฉพาะโฟลเดอร์ train/good)
-    train_dataset = datasets.ImageFolder(root='ENG35-1717-Machine-Vision/week2_bottle/datasets/datasets/MVTecAD/tile/train', transform=transform)
+    train_dataset = datasets.ImageFolder(root='C:/Users/natin/Documents/vision/Train/datasets/MVTecAD/wood/train', transform=transform)
     train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
 
     model = Autoencoder()
@@ -67,7 +67,7 @@ def train_model():
         print(f"Epoch [{epoch + 1}/{EPOCHS}], Loss: {total_loss / len(train_loader):.6f}")
 
     # บันทึกโมเดล
-    torch.save(model.state_dict(), 'anomaly_model_bottle.pth')
+    torch.save(model.state_dict(), 'anomaly_model_wood.pth')
     print("เทรนเสร็จสิ้นและบันทึกโมเดลเรียบร้อยแล้ว!")
 
 

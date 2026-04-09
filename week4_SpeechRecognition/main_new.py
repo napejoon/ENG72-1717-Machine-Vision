@@ -1,25 +1,10 @@
 import cv2
 import numpy as np
 from pydobot import Dobot
-from pydobot.message import Message
-import time
 
 # --- 1. ตั้งค่าการเชื่อมต่อ Dobot ---
 port = "COM10"  # ตรวจสอบพอร์ตใน Device Manager
 device = Dobot(port=port, verbose=False)
-
-print("🏠 กำลัง Set Home อัตโนมัติ (หุ่นยนต์จะขยับแขน กรุณารอ 20 วินาที)...")
-try:
-    msg = Message()
-    msg.id = 31  
-    msg.ctrl = 0x03
-    msg.params = bytearray([])
-    device._send_command(msg)
-except Exception as e:
-     pass 
-    
-time.sleep(20) 
-print("✅ Set Home เสร็จเรียบร้อย! พร้อมทำงาน")
 
 # ตำแหน่ง Home (x, y, z, r)
 home_x, home_y, home_z, home_r = 200, -150, 50, 0
@@ -104,7 +89,7 @@ while True:
                     # 1. เล็งเหนือวัตถุ
                     device.move_to(rx, ry, 50, 0, wait=True)
                     # 2. ลงไปหยิบ (ปรับค่า Z ตามความสูงโต๊ะจริง)
-                    device.move_to(rx, ry, -40, 0, wait=True)
+                    device.move_to(rx, ry, -70, 0, wait=True)
                     device.suck(True)
                     # 3. ยกขึ้น
                     device.move_to(rx, ry, 50, 0, wait=True)
